@@ -41,7 +41,7 @@ class CompanyController extends Controller
             'logo'=>$logo,
         ]);
 
-        dd('finished');
+        return redirect('/company');
     }
 
     /**
