@@ -5,6 +5,9 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+
+require_once __DIR__ . '/auth.php';
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +19,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/admin', function () {
-//     return redirect('/');
-// });
-
-
+Route::group(['middleware' => 'auth'], function () {
 Route::resources([
-    '/'=>HomeController::class,
+    'dashboard'=>HomeController::class,
     'company'=>CompanyController::class,
     'employee'=>EmployeeController::class,
 ]);
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
