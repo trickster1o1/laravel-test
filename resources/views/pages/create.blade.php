@@ -87,14 +87,19 @@
                       <label for="exampleInputFile">File input</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"  value="{{isset($data) ? old('logo',$data->logo) : old('logo')}}">
+                          <input type="file" class="custom-file-input   @error('logo') is-invalid @enderror" id="exampleInputFile" name="logo"  value="{{isset($data) ? old('logo',$data->logo) : old('logo')}}">
+                          
                           <label class="custom-file-label" for="exampleInputFile">{{isset($data) ? $data->logo : '...'}}</label>
                         </div>
                       </div>
+                      @error('logo')
+                        <small class="d-block mt-2 text-danger"> {{ $message }} </small>
+                      @enderror 
+                     
                     </div>    
                     <div class="form-group col-md-6">
                       <label for="exampleInputPassword1">Website</label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="example:https::\\www.something.com"  name="website" value="{{isset($data) ? old('logo',$data->logo) : old('logo')}}">
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="example:https::\\www.something.com"  name="website" value="{{isset($data) ? old('website',$data->website) : old('website')}}">
                     </div>
                   @endif
                   

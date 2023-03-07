@@ -26,7 +26,7 @@ class CompanyRequest extends FormRequest
             'name'=>'required',
             'email'=>'nullable',
             'website'=>'nullable',
-            'logo'=>'nullable',
+            'logo'=>'nullable|image|dimensions:min_width=100,min_height=100',
         ];
     }
 }
