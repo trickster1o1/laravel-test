@@ -50,6 +50,7 @@ class CompanyController extends Controller
     public function show(string $id)
     {
         //
+        dd('show');
     }
 
     /**
@@ -92,5 +93,11 @@ class CompanyController extends Controller
     public function destroy(string $id)
     {
         //
+        $data = Company::where('id',$id)->first();
+        if($data->logo && file_exists('storage/'.$data->logo)) {
+            unlink('storage/'.$data->logo);
+        }
+        $data->delete();
+        return redirect('/company');
     }
 }

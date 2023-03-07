@@ -39,8 +39,14 @@
                                             @foreach ($companies as $company)
                                                 <tr>
                                                     <td>{{$company->name}}</td>
-                                                    <td><a class="btn btn-primary" title="Update" href="{{Route('company.edit', $company->id)}}">U</a>
-                                                    <button class="btn btn-danger" title="Delete">D</button></td>
+                                                    <td>
+                                                        <a class="btn btn-primary" title="Update" href="{{Route('company.edit', $company->id)}}">U</a>
+                                                        <form action="{{route('company.destroy', $company->id)}}" method="POST" style="display:inline-block;">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-danger" title="Delete">D</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif

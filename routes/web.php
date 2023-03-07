@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return redirect('/');
-});
+// Route::get('/admin', function () {
+//     return redirect('/');
+// });
 
 
 Route::resources([
-    ''=>HomeController::class,
+    '/'=>HomeController::class,
     'company'=>CompanyController::class,
 ]);
