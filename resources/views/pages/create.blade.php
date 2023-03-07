@@ -25,7 +25,7 @@
                   @if ($type == 'company')    
                     <div class="form-group col-md-6">
                       <label for="nam">Name</label>
-                      <input type="text" class="form-control @error('name') is-invalid @enderror" id="nam" placeholder="Enter Name" name="name" value="{{isset($data) ? $data->name : ''}}">
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" id="nam" placeholder="Enter Name" name="name" value="{{isset($data) ? old('name',$data->name) : old('name')}}">
                       @error('name')
                           <span class="invalid-feedback"> {{ $message }} </span>
                       @enderror
@@ -35,7 +35,7 @@
                           
                     <div class="form-group col-md-6">
                       <label for="fnam">First Name</label>
-                      <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="fnam" placeholder="Enter First Name" name="first_name" value="{{isset($data) ? $data->first_name : ''}}">
+                      <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="fnam" placeholder="Enter First Name" name="first_name" value="{{isset($data) ? old('first_name',$data->first_name) : old('first_name')}}">
                       @error('first_name')
                           <span class="invalid-feedback"> {{ $message }} </span>
                       @enderror
@@ -43,14 +43,14 @@
                         
                     <div class="form-group col-md-6">
                       <label for="lnam">Last Name</label>
-                      <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="lnam" placeholder="Enter Last Name" name="last_name" value="{{isset($data) ? $data->last_name : ''}}">
+                      <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="lnam" placeholder="Enter Last Name" name="last_name" value="{{isset($data) ? old('last_name',$data->last_name) : old('last_name')}}">
                       @error('last_name')
                           <span class="invalid-feedback"> {{ $message }} </span>
                       @enderror
                     </div>
                     <div class="form-group col-md-6">
                       <label for="pno">Phone Number</label>
-                      <input type="text" class="form-control @error('phone') is-invalid @enderror" id="pno" placeholder="Enter Phone Number" name="phone" value="{{isset($data) ? $data->phone : ''}}">
+                      <input type="text" class="form-control @error('phone') is-invalid @enderror" id="pno" placeholder="Enter Phone Number" name="phone" value="{{isset($data) ? old('phone',$data->phone) : old('phone')}}">
                       @error('phone')
                           <span class="invalid-feedback"> {{ $message }} </span>
                       @enderror
@@ -63,7 +63,9 @@
                           <option selected="selected" value="">- Select -</option>                          
                         @endif
                         @foreach ($companies as $company)
-                            <option value={{$company->id}} @if($action == 'update' && $company->id == $data->company->id) selected='selected' @endif>{{$company->name}}</option>
+                            <option value={{$company->id}} @if($action == 'update' && $company->id == old('company',$data->company->id)) selected='selected' @endif
+                              @if ($action == 'create' && $company->id == old('company')) selected='selected' @endif
+                              >{{$company->name}}</option>
                         @endforeach
                       </select>
                       @error('company')
@@ -75,7 +77,7 @@
                   {{-- common field --}}
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter email" name="email"  value="{{isset($data) ? $data->email : ''}}">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" placeholder="Enter email" name="email"  value="{{isset($data) ? old('email',$data->email) : old('email')}}">
                     @error('email')
                       <span class="invalid-feedback"> {{ $message }} </span>
                     @enderror
@@ -85,14 +87,14 @@
                       <label for="exampleInputFile">File input</label>
                       <div class="input-group">
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"  value="{{isset($data) ? $data->logo : ''}}">
+                          <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"  value="{{isset($data) ? old('logo',$data->logo) : old('logo')}}">
                           <label class="custom-file-label" for="exampleInputFile">{{isset($data) ? $data->logo : '...'}}</label>
                         </div>
                       </div>
                     </div>    
                     <div class="form-group col-md-6">
                       <label for="exampleInputPassword1">Website</label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="example:https::\\www.something.com"  name="website" value="{{isset($data) ? $data->website : ''}}">
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="example:https::\\www.something.com"  name="website" value="{{isset($data) ? old('logo',$data->logo) : old('logo')}}">
                     </div>
                   @endif
                   

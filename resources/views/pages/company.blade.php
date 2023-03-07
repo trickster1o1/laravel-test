@@ -54,8 +54,12 @@
                                             @endforeach
                                         @endif
 
-                                    </tbody>
+                                </tbody>
                                 </table>
+                                <div style="display:flex; width:100%; justify-content:center;" class="pt-2">
+                                    {{$companies->links()}}
+                                </div>
+
                             </div>
                             <!-- /.card-body -->
                         </div>
