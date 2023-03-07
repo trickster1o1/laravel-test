@@ -248,7 +248,7 @@
                         <li class="nav-item">
                           <a href="{{ route('logout') }}"
                               class="nav-link">
-                              <i class="nav-icon fas fa-th"></i>
+                              <i class="nav-icon fa fa-arrow-left"></i>
                               <p>
                                   Logout
                               </p>
