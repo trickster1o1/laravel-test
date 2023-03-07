@@ -1,4 +1,7 @@
 @extends('welcome')
+@section('title')
+    - Company
+@endsection
 @section('content')
     <div class="content-wrapper pt-2">
         <section class="content">
