@@ -18,6 +18,7 @@ require_once __DIR__ . '/auth.php';
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Artisan::call('storage:link', [] );
 
 Route::group(['middleware' => 'auth'], function () {
 Route::resources([
