@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ use Illuminate\Support\Facades\Route;
 Route::resources([
     '/'=>HomeController::class,
     'company'=>CompanyController::class,
+    'employee'=>EmployeeController::class,
 ]);
